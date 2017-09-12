@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>天气查询</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+    <!--    <h1 class="logo">天气查询App</h1> -->
+        <strong><nav>
+          <ul class="menu">
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+          </ul>
+        </nav></strong>
+      </div>
+    </header>
+    <div class="container">
+      <h1 align="center">天气预报</h1>
+      <form align="center" action="/queryApp" method="POST">
+        <p style="text-align:center">
+            城市: <input type="text" name="city" value="北京">
+            <input type="submit" name="btn" value="查询">
+            <input type="submit" name="btn" value="历史">
+            <input type="submit" name="btn" value="帮助">
+        </p>
+      </form>
+    </div>
+    <div class="container2">
+      {% block content %}
+      {% endblock %}
+    </div>
+  </body>
+</html>
